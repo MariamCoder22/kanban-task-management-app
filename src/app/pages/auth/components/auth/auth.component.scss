@@ -1,0 +1,47 @@
+.auth {
+  background: var(--bg-primary-box);
+  padding: 30px;
+  border-radius: 10px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  height: fit-content;
+  width: min(90%, 450px);
+
+  &__loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    inset: 0;
+    backdrop-filter: blur(3px);
+    z-index: 150;
+  }
+
+  &__header {
+    text-align: center;
+  }
+
+  &__actions {
+    button {
+      width: 100%;
+      margin-block: 20px 5px;
+    }
+  }
+
+  &__footer {
+    margin-block: 20px -20px;
+    margin-inline: auto;
+    width: 40%;
+  }
+}
+
+:host ::ng-deep {
+  .theme-toggle {
+    margin-bottom: 0 !important;
+    transform: scale(.75);
+  }
+}

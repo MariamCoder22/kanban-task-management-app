@@ -1,0 +1,64 @@
+:host ::ng-deep {
+  app-add-button button {
+    margin-top: 32px;
+  }
+}
+
+.board {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 112px);
+  position: relative;
+
+  &__no-boards {
+    text-align: center;
+
+    button {
+      width: 100%;
+      margin-top: 15px;
+    }
+  }
+
+  &__loader {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(2px);
+  }
+
+  &__columns {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    gap: 24px;
+    overflow-x: scroll;
+  }
+
+  &__add-column {
+    height: calc(100% - 39px);
+    margin-top: 39px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--gradient);
+    border-radius: 6px;
+    min-width: 280px;
+    cursor: pointer;
+  }
+
+  &__empty {
+    text-align: center;
+
+    @media screen and (max-width: 599px) {
+      h4 {
+        font-size: 15px;
+        line-height: 20px;
+      }
+    }
+  }
+}

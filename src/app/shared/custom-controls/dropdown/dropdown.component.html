@@ -1,0 +1,17 @@
+<div class="dropdown" [class.dropdown--disabled]="isDisabled">
+  <div (click)="toggleDropdown()"
+       class="dropdown__selected"
+       [class.dropdown__selected--active]="isExpanded"
+      [class.dropdown__selected--error]="hasError">
+    <span *ngIf="selected" class="text--large">{{selected}}</span>
+    <span *ngIf="!selected" class="text--large">Select status</span>
+    <i [@showOptions]="isExpanded ? 'open' : 'close'" class="icon icon--chevron-up"></i>
+  </div>
+  <span class="dropdown__error-message text--mid text--danger" *ngIf="hasError">{{errorMessage}}</span>
+  <div class="dropdown__options" *ngIf="isExpanded">
+    <div (click)="selectOption(option)" class="dropdown__option text--large text--secondary"
+         *ngFor="let option of options$ | async">
+      {{option}}
+    </div>
+  </div>
+</div>

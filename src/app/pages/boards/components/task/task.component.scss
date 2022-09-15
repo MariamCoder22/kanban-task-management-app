@@ -1,0 +1,40 @@
+.task {
+  background: var(--bg-primary-box);
+  padding: 23px 16px;
+  box-shadow: 0 4px 6px rgba(54, 78, 126, 0.101545);
+  border-radius: 8px;
+  cursor: pointer;
+  position: relative;
+
+  &__priority {
+    position: absolute;
+    right: 16px;
+    top: 23px;
+
+    &--critical {
+      color: var(--bg-danger);
+    }
+
+    &--high {
+      color: var(--bg-danger-hover)
+    }
+  }
+
+  &:hover {
+    background: var(--bg-primary-hover);
+    outline: 2px dashed var(--bg-primary);
+    outline-offset: -4px;
+
+    h3 {
+      color: var(--bg-primary);
+    }
+
+    p {
+      color: #fff;
+    }
+  }
+
+  h3 {
+    margin-bottom: 8px;
+  }
+}

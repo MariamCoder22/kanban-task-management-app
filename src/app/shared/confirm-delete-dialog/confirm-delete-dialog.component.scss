@@ -1,0 +1,22 @@
+.confirm-delete {
+  max-width: 480px;
+
+  &__description {
+    color: var(--clr-mid-gray);
+  }
+
+  &__actions {
+    margin-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+
+    & > button {
+      flex: 1;
+    }
+
+    @media screen and (max-width: 599px) {
+      flex-direction: column;
+    }
+  }
+}

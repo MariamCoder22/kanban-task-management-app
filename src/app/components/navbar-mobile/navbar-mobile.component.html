@@ -1,0 +1,19 @@
+<div class="navbar">
+  <div class="navbar__header">
+    <div class="navbar__logo">
+      <i class="icon icon--mobile-logo"></i>
+    </div>
+    <h2 class="navbar__board" (click)="toggleMenu()">
+       {{ (currentBoard$ | async)?.name || 'Select board'}}
+      <i class="icon icon--chevron-down"></i>
+    </h2>
+  </div>
+  <div class="navbar__actions">
+    <app-add-button padding="10px 25px" [action]="onAddNewTask.bind(this)" [disabled$]="disabled$"></app-add-button>
+    <app-context-menu [contextMenu]="contextMenu" [disabled$]="disabled$"></app-context-menu>
+  </div>
+</div>
+
+<app-modal *ngIf="isMenuVisible" [closeAction]="toggleMenu.bind(this)">
+  <app-sidebar (onBoardSelected)="toggleMenu()"></app-sidebar>
+</app-modal>

@@ -1,0 +1,32 @@
+<div class="sidebar" [class.sidebar--hidden]="isSidenavClosed$ | async">
+  <div class="sidebar__main">
+    <h4>ALL BOARDS ({{ numberOfBoards$ | async}})</h4>
+    <ul class="sidebar__boards">
+      <div *ngIf="isLoadingBoards$ | async" class="sidebar__loader">
+        <app-spinner></app-spinner>
+      </div>
+      <ng-container *ngIf="boards$ | async as boards">
+        <li
+          *ngFor="let board of boards; let index = index;"
+          class="sidebar__board"
+          [class.sidebar__board--active]="(currentBoardIndex$ | async) === index"
+          (click)="onSelectBoard(board)">
+          <i class="icon icon--board"></i> <span class="text--highlight">{{ board.name }}</span>
+        </li>
+      </ng-container>
+      <li class="sidebar__board sidebar__board--add-new" (click)="onAddNewBoard()">
+        <i class="icon icon--board icon--primary-clr"></i> <span class="text--highlight"><i
+        class="icon icon--add icon--primary-clr"></i>{{ isTablet ? '' : 'Create'  }} New Board</span>
+      </li>
+    </ul>
+  </div>
+  <div class="sidebar__actions">
+    <button class="button button--secondary" (click)="onLogout()">Logout</button>
+    <app-theme-toggle></app-theme-toggle>
+    <div *ngIf="!isMobile" class="sidebar__sidebar-toggle" (click)="toggleSidenav()">
+      <h4 class="sidebar__hide-button"><i class="icon icon--hide"></i> Hide Sidebar</h4>
+    </div>
+  </div>
+</div>
+
+<i *ngIf="!isMobile" class="sidebar__show-button icon icon--show" (click)="toggleSidenav()"></i>

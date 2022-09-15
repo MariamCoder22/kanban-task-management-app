@@ -1,0 +1,8 @@
+<div class="theme-toggle">
+  <i class="icon icon--sun"></i>
+  <label class="toggle" *ngIf="currentTheme$ | async as theme">
+    <input type="checkbox" (change)="onToggleTheme()" [checked]="theme === 'Dark'">
+    <span></span>
+  </label>
+  <i class="icon icon--moon"></i>
+</div>

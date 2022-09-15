@@ -1,0 +1,32 @@
+.toggle {
+  input {
+    display: none;
+  }
+
+  input + span {
+    display: block;
+    width: 40px;
+    height: 20px;
+    background: var(--bg-primary);
+    border-radius: 12px;
+    cursor: pointer;
+    position: relative;
+
+    &::before {
+      position: absolute;
+      content: "";
+      width: 14px;
+      height: 14px;
+      background-color: var(--clr-light);
+      border-radius: 100%;
+      top: 3px;
+      left: 4px;
+      transform: translateX(0);
+      transition: transform 0.4s;
+    }
+  }
+
+  input:checked + span::before {
+    transform: translateX(19px);
+  }
+}

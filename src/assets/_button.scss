@@ -1,0 +1,56 @@
+@import "./font-size";
+
+button {
+  outline: none;
+  border: 0;
+  cursor: pointer;
+
+  &:disabled {
+    opacity: .3;
+    pointer-events: none;
+  }
+}
+
+.button {
+  padding-block: 8px;
+  color: var(--clr-light);
+  border: 0;
+  text-align: center;
+  border-radius: 20px;
+  line-height: 23px;
+  font-size: $text-sm;
+  font-weight: $bold;
+  cursor: pointer;
+
+  &--primary {
+    background: var(--bg-primary);
+
+    &:hover {
+      background: var(--bg-primary-hover);
+    }
+  }
+
+  &--secondary {
+    color: var(--text-secondary);
+    background: var(--bg-secondary);
+
+    &:hover {
+      background: var(--bg-secondary-hover);
+    }
+  }
+
+  &--danger {
+    background: var(--bg-danger);
+
+    &:hover {
+      background: var(--bg-danger-hover);
+    }
+  }
+
+  &--large {
+    font-size: $text-md;
+    line-height: 19px;
+    border-radius: 24px;
+    padding: 15px 61px;
+  }
+}

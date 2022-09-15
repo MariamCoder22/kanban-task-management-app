@@ -1,0 +1,11 @@
+<app-modal (close)="response$.next(false)">
+  <div class="confirm-delete">
+    <h3 class=" text--danger">Delete this {{label.type}}?</h3>
+    <p class="confirm-delete__description text text--large">Are you sure you want to delete the "{{label.name}}" {{label.type}}?
+      This action will remove {{ label.type === 'Board' ? 'all columns and tasks' : 'the task and its subtasks'}} and cannot be reversed.</p>
+    <div class="confirm-delete__actions">
+      <button class="button button--danger" (click)="confirm()">Delete</button>
+      <button class="button button--secondary" (click)="decline()">Cancel</button>
+    </div>
+  </div>
+</app-modal>

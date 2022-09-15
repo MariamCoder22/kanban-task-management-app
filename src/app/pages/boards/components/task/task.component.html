@@ -1,0 +1,10 @@
+<div class="task" (click)="previewTask()">
+  <h3>{{task.title}}</h3>
+  <p class="text--mid text--secondary">{{completed}} of {{task.subtasks.length}} subtasks</p>
+  <fa-icon
+    class="task__priority"
+    [class.task__priority--critical]="task.priority === priority.Critical"
+    [class.task__priority--high]="task.priority === priority.High"
+    [icon]="getIcon()">
+  </fa-icon>
+</div>

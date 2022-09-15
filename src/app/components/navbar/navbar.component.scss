@@ -1,0 +1,32 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--bg-primary-box);
+
+  &__logo {
+    min-width: min(35%, 300px);
+    background-position-x: 28px;
+    transition: 0.4s;
+
+    &--short {
+      min-width: min(35%, 209px);
+    }
+  }
+
+  &__main {
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-between;
+    border: 0 solid var(--clr-border);
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    padding: 20px 38px 28px;
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+}

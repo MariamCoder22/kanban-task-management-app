@@ -1,0 +1,57 @@
+@import "./font-size";
+
+h1, h2, h3, h4 {
+  font-weight: $bold;
+  color: var(--text-primary);
+}
+
+h1 {
+  font-size: $text-xl;
+  line-height: 30px;
+}
+
+h2 {
+  font-size: $text-lg;
+  line-height: 23px;
+}
+
+h3 {
+  font-size: $text-md;
+  line-height: 19px;
+}
+
+h4 {
+  font-size: $text-xs;
+  line-height: 14px;
+  letter-spacing: 3px;
+  color: #828FA3;
+}
+
+.text {
+  color: var(--text-primary);
+
+  &--danger {
+    color: var(--bg-danger);
+  }
+
+  &--secondary {
+    color: #828FA3;
+  }
+
+  &--large {
+    font-weight: $mid;
+    font-size: $text-sm;
+    line-height: 23px;
+  }
+  &--mid {
+    font-weight: $bold;
+    font-size: $text-xs;
+    line-height: 15px;
+  }
+
+  &--highlight {
+    font-weight: $bold;
+    font-size: $text-md;
+    line-height: 19px;
+  }
+}

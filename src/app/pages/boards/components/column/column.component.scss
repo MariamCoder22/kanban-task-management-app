@@ -1,0 +1,27 @@
+.column {
+  width: 280px;
+  height: 100%;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    h4 {
+      text-transform: uppercase;
+    }
+  }
+
+  &__indicator {
+    width: 15px;
+    height: 15px;
+    clip-path: circle(7.5px);
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 100%;
+  }
+}

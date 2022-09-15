@@ -1,0 +1,33 @@
+<app-modal class="board">
+  <h2 class="board__title">{{ mode === 'ADD' ? 'Add New' : 'Edit'}} Board</h2>
+  <form class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="form__control">
+      <label class="form__label">Board Name</label>
+      <input formControlName="name" type="text" class="form__input" placeholder="e.g. Web Design">
+      <ng-container *ngIf="form.get('name')!.invalid && form.get('name')!.touched">
+        <span *ngIf="form.get('name')!.hasError('required')" class="text--mid text--danger">Can't be empty!</span>
+      </ng-container>
+    </div>
+    <div class="form__control" formArrayName="columns">
+      <label class="form__label">Board Columns</label>
+      <div class="form__array-item" *ngFor="let column of columns; let i = index; let first = first">
+        <input type="text" class="form__input" placeholder="e.g. Todo or Doing" [formControlName]="i">
+        <button *ngIf="!first" class="icon icon--times" (click)="onRemoveColumn(i)"></button>
+        <ng-container *ngIf="columns[i].invalid && columns[i].touched">
+          <span *ngIf="columns[i].hasError('required')" class="text--mid text--danger">Can't be empty!</span>
+        </ng-container>
+      </div>
+    </div>
+    <div class="form__actions board__actions">
+      <button class="button button--secondary" type="button" (click)="onAddNewColumn()"><i
+        class="icon icon--add icon--primary-clr"></i> Add New Column
+      </button>
+      <button [disabled]="(isSavingBoard$ | async) || form.invalid" class="button button--primary" type="submit">
+        {{mode === 'ADD' ? 'Create New' : 'Update'}} Board
+      </button>
+    </div>
+  </form>
+  <div class="board__loader" *ngIf="isSavingBoard$ | async">
+    <app-spinner></app-spinner>
+  </div>
+</app-modal>

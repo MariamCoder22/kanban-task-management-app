@@ -1,0 +1,41 @@
+<app-modal>
+  <div class="task">
+    <div class="task__header">
+      <app-context-menu [rightOffset]="-169" [contextMenu]="contextMenu"></app-context-menu>
+      <h2>{{task.title}}</h2>
+    </div>
+    <p class="text--secondary text--large">{{task.description}}</p>
+    <form [formGroup]="form">
+      <div class="task__subtasks" *ngIf="subtasks.length" formArrayName="subtasks">
+        <p class="task__subtasks-summary text--large">Subtasks ({{completed}} of {{subtasks.length}})</p>
+        <label *ngFor="let subtask of subtasks; let i = index;" class="task__subtask" [for]="i">
+          <input [formControlName]="i" class="form__checkbox" type="checkbox" [id]="i" #ref>
+          <span></span>
+          <span [class.task__subtask-text--complete]="ref.checked" class="task__subtask-text">{{subtask.title}}</span>
+        </label>
+      </div>
+      <div class="task__status form__control" style="margin-top: 24px;">
+        <label class="form__label">Current Status</label>
+        <app-dropdown
+          formControlName="status"
+          [selected]="task.status"
+          [options$]="boardsStoreFacade.statuses$">
+        </app-dropdown>
+      </div>
+      <div class="task__status form__control" style="margin-top: 24px;">
+        <label class="form__label">Current priority</label>
+        <app-dropdown
+          formControlName="priority"
+          [selected]="task.priority"
+          [options$]="priorities$">
+        </app-dropdown>
+      </div>
+    </form>
+  </div>
+</app-modal>
+<app-confirm-delete-dialog
+  *ngIf="showConfirmDeleteDialog"
+  [closeAction]="this.toggleConfirmationDialog.bind(this)"
+  [label]="deleteLabel"
+  (response$)="onDelete($event)">
+</app-confirm-delete-dialog>

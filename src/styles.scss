@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --clr-light: rgb(255,255,255);
+  --body-bg: rgb(228, 235, 250);
+  --text-primary: rgb(244, 247, 253);
+  --text-secondary: rgb(99, 95, 195);
+  --bg-primary: rgb(99, 95, 195);
+  --bg-primary-hover: rgb(168, 164, 255);
+  --bg-secondary: rgba(99, 95, 195, .1);
+  --bg-secondary-hover: rgba(99, 95, 195, .25);
+  --bg-danger: rgb(234, 85, 85);
+  --bg-danger-hover: rgb(255, 152, 152);
+  --bg-primary-box: rgb(244, 247, 253);
+  --clr-border: rgb(228, 235, 250);
+  --clr-mid-gray: rgb(130, 143, 163);
+  --gradient: 'linear-gradient(180deg, rgba(43, 44, 55, 0.25) 0%, rgba(43, 44, 55, 0.125) 100%)';
+}
+
+@import "./assets/font-size";
+@import "./assets/button";
+@import "./assets/typography";
+@import "./assets/icons";
+@import "./assets/toggle";
+@import "./assets/form";
+@import "./assets/scroll";
+@import "./assets/link";
+@import "./assets/_media.scss";
+
+body {
+  font-family: 'Plus Jakarta S', sans-serif;
+  background: var(--body-bg);
+  margin: 0;
+  overflow-x: hidden;
+  color: var(--text-primary);
+  @include large-view {
+    overflow: hidden;
+  }
+}
+
+.cdk-drop-list-dragging .cdk-drag {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.cdk-drag-animating {
+  transition: transform 300ms cubic-bezier(0, 0, 0.2, 1);
+}

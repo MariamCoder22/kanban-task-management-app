@@ -1,0 +1,115 @@
+.sidebar {
+  z-index: 150;
+  background: var(--bg-primary-box);
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+
+  @media screen and (min-width: 599px) {
+    position: absolute;
+    width: min(35%, 300px);
+    height: calc(100vh - 115px);
+    border: 0 solid var(--clr-border);
+    border-right-width: 1px;
+    transition: transform .4s;
+    transform: translateX(0px);
+    padding: 15px 24px;
+  }
+
+  &--hidden {
+    transform: translateX(-300px);
+  }
+
+  &__loader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height:150px;
+  }
+
+  &__boards {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  &__board {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-left: -31px;
+    padding: 15px 32px;
+    border-radius: 0 100px 100px 0;
+    cursor: pointer;
+    color: var(--clr-mid-gray);
+
+    @media screen and (min-width: 599px) {
+      margin-left: -24px;
+    }
+
+    &--active {
+      background: var(--bg-primary);
+      color: var(--clr-light);
+
+      i {
+        filter: brightness(3);
+      }
+    }
+
+    &--add-new {
+      color: var(--bg-primary);
+      span {
+        display: flex;
+        align-items: center;
+        gap: .25rem;
+      }
+    }
+  }
+
+  &__actions {
+    button {
+      width: 100%;
+      margin-bottom: 15px;
+    }
+  }
+
+  &__sidebar-toggle {
+    margin-left: 7px;
+  }
+
+  &__hide-button {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+    width: calc(100% + 35px);
+    margin-left: -30px;
+    padding-left: 28px;
+    margin-block:0;
+    padding-block: 15px;
+
+    &:hover {
+      background: rgba(99, 95, 195, .1);
+      border-radius: 0 100px 100px 0;
+      color: var(--bg-primary);
+
+      i {
+        filter: invert(41%) sepia(12%) saturate(3443%) hue-rotate(205deg) brightness(91%) contrast(85%);
+      }
+    }
+  }
+
+  &__show-button {
+    position: absolute;
+    bottom: 32px;
+    z-index: 140;
+    left: 0;
+    cursor: pointer;
+    background-color: var(--bg-primary);
+    width: 56px;
+    height: 48px;
+    background-size: initial !important;
+    background-position: center;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 0 100px 100px 0;
+  }
+}

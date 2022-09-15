@@ -1,0 +1,100 @@
+.icon {
+  display: inline-block;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+
+  &--primary-clr {
+    filter: invert(41%) sepia(12%) saturate(3443%) hue-rotate(205deg) brightness(91%) contrast(85%);
+  }
+
+  &--secondary-clr {
+    filter: invert(57%) sepia(23%) saturate(307%) hue-rotate(177deg) brightness(96%) contrast(80%);
+  }
+
+  &--active {
+    cursor: pointer;
+  }
+
+  &--disactive {
+    pointer-events: none;
+    opacity: .5;
+  }
+
+  &--add {
+    background: url("./icons/icon-add-task-mobile.svg");
+    width: 8px;
+    height: 8px;
+  }
+
+  &--chevron-down {
+    background: url('./icons/icon-chevron-down.svg');
+    width: 10px;
+    height: 7px;
+  }
+
+  &--chevron-up {
+    background: url('./icons/icon-chevron-up.svg');
+    width: 10px;
+    height: 7px;
+  }
+
+  &--dots {
+    background: url("./icons/icon-vertical-ellipsis.svg");
+    width: 5px;
+    height: 20px;
+  }
+
+  &--mobile-logo {
+    background: url("./icons/logo-mobile.svg");
+    width: 24px;
+    height: 25px;
+  }
+
+  &--logo-dark {
+    background: url("./icons/logo-light.svg");
+    width: 153px;
+    height: 26px;
+  }
+
+  &--logo-light {
+    background: url("./icons/logo-dark.svg");
+    width: 153px;
+    height: 26px;
+  }
+
+  &--board {
+    background: url("./icons/icon-board.svg");
+    width: 16px;
+    height: 16px;
+  }
+
+  &--hide {
+    background: url("./icons/icon-hide-sidebar.svg");
+    width: 18px;
+    height: 16px;
+  }
+
+  &--show {
+    background: url("./icons/icon-show-sidebar.svg");
+    width: 16px;
+    height: 11px;
+  }
+
+  &--sun {
+    background: url("./icons/icon-light-theme.svg");
+    width: 19px;
+    height: 19px;
+  }
+
+  &--moon {
+    background: url("./icons/icon-dark-theme.svg");
+    width: 16px;
+    height: 16px;
+  }
+
+  &--times {
+    background: url("./icons/icon-cross.svg");
+    width: 15px;
+    height: 15px;
+  }
+}

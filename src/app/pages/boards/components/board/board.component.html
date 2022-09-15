@@ -1,0 +1,30 @@
+<div class="board">
+  <div *ngIf="isLoading$ | async" class="board__loader">
+    <app-spinner></app-spinner>
+  </div>
+  <div *ngIf="noBoards$ | async" class="board__no-boards">
+    <h3 class="text--secondary">There are no boards yet!<br /> Please create one.</h3>
+    <button class="button button--primary" (click)="onCreateBoard()">Create Board</button>
+  </div>
+  <ng-container *ngIf="columns$ | async as columns;">
+    <ng-template
+      [ngTemplateOutletContext]="{ $implicit: columns }"
+      [ngTemplateOutlet]="columns.length ? columnsWrapper : emptyBoard"></ng-template>
+  </ng-container>
+</div>
+
+<ng-template #columnsWrapper let-columns>
+  <div class="board__columns" cdkDropListGroup>
+    <app-column *ngFor="let column of columns;" [column]="column"></app-column>
+    <div class="board__add-column" (click)="onAddNewColumn()">
+     <h2 class="text--secondary"><i class="icon icon--add icon--secondary-clr"></i> New Column</h2>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #emptyBoard>
+  <div class="board__empty">
+    <h4>This board is empty.<br /> Create a new column to get started</h4>
+    <app-add-button [action]="onAddNewColumn.bind(this)" label="Add New Column"></app-add-button>
+  </div>
+</ng-template>

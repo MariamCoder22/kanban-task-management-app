@@ -1,0 +1,5 @@
+@mixin large-view {
+  @media screen and (min-width: 599px) {
+    @content;
+  }
+}

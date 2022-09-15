@@ -1,0 +1,14 @@
+<label [for]="contextMenuId" style="position:relative;" [style.pointer-events]="(disabled$ | async) ? 'none' : 'auto'">
+  <input type="checkbox" [id]="contextMenuId"  [(ngModel)]="isOpen">
+  <i [class.icon--disactive]="disabled$ | async" class="icon icon--dots icon--active"></i>
+</label>
+
+<div *ngIf="isOpen" class="context-menu" [style.right.px]="rightOffset">
+  <div
+    *ngFor="let item of contextMenu"
+    (click)="executeAction(item.action)"
+    [class.context-menu__item--danger]="item.danger"
+    class="context-menu__item">
+    {{item.label}}
+  </div>
+</div>

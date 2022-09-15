@@ -1,0 +1,40 @@
+<div class="auth">
+  <div *ngIf="isLoading$ | async" class="auth__loader">
+    <app-spinner></app-spinner>
+  </div>
+  <div *ngIf="currentTheme$ | async as theme" class="auth__header">
+    <i class="icon icon--logo-{{ theme === 'Dark' ? 'dark' : 'light'  }}"></i>
+    <h1>{{isSignUp ? 'Sign Up' : 'Sign In'}}</h1>
+  </div>
+  <form class="form auth__main" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="form__control">
+      <label class="form__label">E-mail</label>
+      <input formControlName="email" type="text" class="form__input" placeholder="e.g. johnny.wick@kanban.com">
+      <ng-container *ngIf="form.get('email')!.invalid && form.get('email')!.touched">
+        <span *ngIf="form.get('email')!.hasError('required')" class="text--mid text--danger">Can't be empty!</span>
+        <span *ngIf="form.get('email')!.hasError('email')" class="text--mid text--danger">Invalid e-mail!</span>
+      </ng-container>
+    </div>
+    <div class="form__control">
+      <label class="form__label">Password</label>
+      <input formControlName="password" type="password" class="form__input" placeholder="e.g. abc1234! (great pass!)">
+      <ng-container *ngIf="form.get('password')!.invalid && form.get('password')!.touched">
+        <span *ngIf="form.get('password')!.hasError('required')" class="text--mid text--danger">Can't be empty!</span>
+        <span *ngIf="form.get('password')!.hasError('minlength')" class="text--mid text--danger">Can't be shorter than 6 chars!</span>
+        <span *ngIf="form.get('password')!.hasError('maxlength')" class="text--mid text--danger">Can't be longer than 20 chars!</span>
+      </ng-container>
+    </div>
+    <div class="auth__actions">
+      <p class="text text--secondary text--mid">
+        {{ isSignUp ? 'Do you already have an account?' : 'Do not you have an account yet?'}}
+        <a [routerLink]="isSignUp ? '/auth/sign-in' : '/auth/sign-up'">{{ isSignUp ? 'Sign In' : 'Sign Up'}}</a>
+      </p>
+      <p *ngIf="authError$ | async as error" class="text text--danger text--mid">{{error}}</p>
+      <button [disabled]="form.invalid" type="submit"
+              class="button button--primary">{{ isSignUp ? 'Sign Up' : 'Sign In' }}</button>
+    </div>
+  </form>
+  <div class="auth__footer">
+    <app-theme-toggle></app-theme-toggle>
+  </div>
+</div>

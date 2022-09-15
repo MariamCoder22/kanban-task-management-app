@@ -1,0 +1,93 @@
+.form {
+  &__control {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: relative;
+  }
+
+  &__label {
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 15px;
+    margin-bottom: 8px;
+  }
+
+  &__input {
+    background: var(--bg-primary-box);
+    color: var(--text-primary);
+    border: 1px solid rgba(130, 143, 163, 0.25);
+    border-radius: 4px;
+    padding: 9px 16px;
+    font-size: 13px;
+    line-height: 23px;
+    margin-bottom: 12px;
+    outline: none;
+
+    &:focus {
+      border: 1px solid var(--bg-primary);
+    }
+
+    &::placeholder {
+      opacity: 0.25;
+      color: currentColor;
+    }
+
+    &.ng-touched.ng-invalid {
+      border: 1px solid var(--bg-danger);
+    }
+
+    & + span {
+      color: var(--bg-danger);
+      position: absolute;
+      right: 14px;
+      top: 50%;
+
+      @media screen and (max-width: 599px) {
+        right: 0;
+        top: 91%;
+      }
+    }
+  }
+
+  &__array-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 12px;
+    position: relative;
+
+    input {
+      flex: 1;
+      margin-bottom: 0;
+    }
+
+    i {
+      cursor: pointer;
+    }
+  }
+
+  &__checkbox {
+    display: none;
+
+    & + span {
+      cursor: pointer;
+      background: var(--body-bg);
+      border: 1px solid rgba(130, 143, 163, 0.248914);
+      border-radius: 2px;
+      width: 16px;
+      height: 16px;
+    }
+
+    &:checked + span {
+      background: url("../assets/icons/icon-check.svg") no-repeat center;
+      background-size: 10px 8px;
+      background-color: var(--bg-primary);
+    }
+  }
+}
+
+textarea {
+  resize: none;
+}

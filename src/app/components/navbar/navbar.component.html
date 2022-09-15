@@ -1,0 +1,19 @@
+<div class="navbar">
+  <i *ngIf="currentTheme$ | async as theme"
+     class="navbar__logo icon icon--logo-{{ theme === 'Dark' ? 'dark' : 'light'  }}"
+     [class.navbar__logo--short]="isSidenavClosed$ | async">
+  </i>
+  <div class="navbar__main">
+    <ng-container *ngIf="currentBoard$ | async as board; else noBoardSelected">
+      <h1>{{ board.name}}</h1>
+    </ng-container>
+    <div class="navbar__actions">
+      <app-add-button [disabled$]="disabled$" [action]="onAddNewTask.bind(this)" [padding]="isTablet ? '15px 25px' : '15px 61px'" [label]="addNewTaskLabel"></app-add-button>
+      <app-context-menu [disabled$]="disabled$" [contextMenu]="contextMenu"></app-context-menu>
+    </div>
+  </div>
+</div>
+
+<ng-template #noBoardSelected>
+  <h1>Select board!</h1>
+</ng-template>

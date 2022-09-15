@@ -1,0 +1,44 @@
+.task {
+  max-width: 480px;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-right: 1.5rem;
+    position: relative;
+  }
+
+  &__subtasks-summary {
+    color: var(--clr-mid-gray);
+    font-weight: bold;
+  }
+
+  &__subtask {
+    cursor: pointer;
+    display: flex;
+    gap: 16px;
+    padding: 12px;
+    background: var(--body-bg);
+    border-radius: 4px;
+
+    &:hover {
+      background: var(--bg-primary);
+    }
+
+    &:not(:last-of-type) {
+      margin-bottom: 8px;
+    }
+  }
+
+  &__subtask-text {
+    font-weight: 700;
+    font-size: 12px;
+    color: var(--text-primary);
+
+    &--complete {
+      opacity: .5;
+      text-decoration-line: line-through;
+    }
+  }
+}

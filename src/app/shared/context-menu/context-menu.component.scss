@@ -1,0 +1,39 @@
+input {
+  display: none;
+}
+
+:host {
+  position: relative;
+}
+
+.context-menu {
+  position: absolute;
+  min-width: 192px;
+  top: 26px;
+  z-index: 150;
+  background: var(--body-bg);
+  box-shadow: 3px 3px 2px rgba(54, 78, 126, 0.25);
+  border-radius: 8px;
+  padding: 16px;
+
+  &__item {
+    font-size: 13px;
+    line-height: 23px;
+    color: var(--clr-mid-gray);
+    white-space: nowrap;
+    cursor: pointer;
+    opacity: .9;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    &:not(:last-of-type) {
+      margin-bottom: 16px;
+    }
+
+    &--danger {
+      color: var(--bg-danger);
+    }
+  }
+}
